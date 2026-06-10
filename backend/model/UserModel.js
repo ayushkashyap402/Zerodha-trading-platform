@@ -1,27 +1,40 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const bcrypt   = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: [true, "Your email address is required"],
+    required: [true, "Email is required"],
     unique: true,
+    lowercase: true,
+    trim: true,
   },
   username: {
     type: String,
-    required: [true, "Your username is required"],
+    required: [true, "Username is required"],
+    trim: true,
   },
   password: {
     type: String,
-    required: [true, "Your password is required"],
+    required: [true, "Password is required"],
   },
-  createdAt: {
-    type: Date,
-    default: new Date(),
-  },
+
+  // ── Profile fields ──────────────────────────────────────────────────────
+  phone:   { type: String,  default: "" },
+  pan:     { type: String,  default: "" },    // PAN card number
+  dob:     { type: String,  default: "" },    // Date of birth YYYY-MM-DD
+  address: { type: String,  default: "" },
+
+  // ── Account balance ─────────────────────────────────────────────────────
+  balance:    { type: Number, default: 5000 },  // Every new user starts with ₹5000
+  usedMargin: { type: Number, default: 0 },     // Margin locked in active positions
+
+  createdAt: { type: Date, default: Date.now },
 });
 
+// Hash password only when it's modified
 userSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
   this.password = await bcrypt.hash(this.password, 12);
 });
 

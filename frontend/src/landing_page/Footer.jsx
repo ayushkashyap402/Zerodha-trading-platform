@@ -11,11 +11,11 @@ function Footer() {
               &copy; 2010 - 2024, Not Zerodha Broking Ltd. All rights reserved.
             </p>
             <div className="row">
-                <div className="col-1"><a href=""><i class="fa fa-twitter-square" aria-hidden="true" style={{color:"gray"}}></i></a></div>                      
-                <div className="col-1"><a href=""><i class="fa fa-facebook-official" aria-hidden="true" style={{color:"gray"}}></i></a></div>
-                <div className="col-1"><a href=""><i class="fa fa-instagram" aria-hidden="true" style={{color:"gray"}}></i></a></div>
-                <div className="col-1"><a href=""> <i class="fa fa-linkedin-square" aria-hidden="true" style={{color:"gray"}}></i></a></div>
-                <div className="col-1"><a href=""><i class="fa fa-telegram" aria-hidden="true" style={{color:"gray"}}></i></a></div>
+                <div className="col-1"><a href=""><i className="fa fa-twitter-square" aria-hidden="true" style={{color:"gray"}}></i></a></div>                      
+                <div className="col-1"><a href=""><i className="fa fa-facebook-official" aria-hidden="true" style={{color:"gray"}}></i></a></div>
+                <div className="col-1"><a href=""><i className="fa fa-instagram" aria-hidden="true" style={{color:"gray"}}></i></a></div>
+                <div className="col-1"><a href=""> <i className="fa fa-linkedin-square" aria-hidden="true" style={{color:"gray"}}></i></a></div>
+                <div className="col-1"><a href=""><i className="fa fa-telegram" aria-hidden="true" style={{color:"gray"}}></i></a></div>
            </div>
           </div>
           <div className="col-3">

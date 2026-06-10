@@ -16,20 +16,17 @@ function Navbar() {
   }, []);
 
   return (
-    <nav
-      className="navbar navbar-expand-lg border-bottom"
-      style={{ backgroundColor: "#FFF" }}
-    >
+    <nav className="navbar navbar-expand-lg border-bottom" style={{ backgroundColor: '#fff' }}>
       <div className="container p-2">
+
+        {/* Brand / Logo */}
         <Link className="navbar-brand" to="/">
-          <img
-            src="media/images/logo.svg"
-            style={{ width: "25%" }}
-            alt="Logo"
-          />
+          <img src="media/images/logo.svg" style={{ width: '25%' }} alt="Zerodha" />
         </Link>
+
+        {/* Mobile hamburger toggle */}
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -37,69 +34,72 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
+
+        {/* Nav links */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="d-flex" role="search">
-            <ul className="navbar-nav mb-lg-0">
-              <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/signup">
-                  Signup
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/about">
-                  About
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/product">
-                  Product
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/pricing">
-                  Pricing
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/support">
-                  Support
-                </Link>
-              </li>
-              <li className="nav-item d-flex align-items-center" ref={menuRef} style={{ position: 'relative' }}>
-                <button
-                  type="button"
-                  className="nav-link btn"
-                  onClick={() => setShowAuthMenu(s => !s)}
-                  aria-expanded={showAuthMenu}
-                  aria-label="Open auth menu"
-                  style={{ background: 'none', border: 'none', padding: '0 .5rem', display: 'inline-flex', alignItems: 'center', height: '100%' }}
-                >
-                  <i className="fa fa-bars" aria-hidden="true" />
-                </button>
-                {showAuthMenu && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      right: 0,
-                      top: 'calc(100% + 6px)',
-                      background: '#fff',
-                      border: '1px solid #eee',
-                      boxShadow: '0 6px 18px rgba(0,0,0,0.08)',
-                      borderRadius: 8,
-                      padding: 6,
-                      zIndex: 1000,
-                      minWidth: 160,
-                    }}
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+            <li className="nav-item">
+              <Link className="nav-link" to="/signup">Signup</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/product">Product</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/pricing">Pricing</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/support">Support</Link>
+            </li>
+
+            {/* Auth dropdown */}
+            <li className="nav-item d-flex align-items-center" ref={menuRef} style={{ position: 'relative' }}>
+              <button
+                type="button"
+                className="nav-link btn"
+                onClick={() => setShowAuthMenu((s) => !s)}
+                aria-expanded={showAuthMenu}
+                aria-label="Open auth menu"
+                style={{
+                  background: 'none', border: 'none',
+                  padding: '0 .5rem', display: 'inline-flex',
+                  alignItems: 'center', height: '100%',
+                }}
+              >
+                <i className="fa fa-bars" aria-hidden="true" />
+              </button>
+
+              {showAuthMenu && (
+                <div style={{
+                  position: 'absolute', right: 0, top: 'calc(100% + 6px)',
+                  background: '#fff', border: '1px solid #eee',
+                  boxShadow: '0 6px 18px rgba(0,0,0,.08)',
+                  borderRadius: 8, padding: 6, zIndex: 1000, minWidth: 160,
+                }}>
+                  <Link
+                    to="/login"
+                    className="btn btn-sm btn-light d-block text-start"
+                    style={{ textDecoration: 'none', color: '#212529', marginBottom: 6 }}
+                    onClick={() => setShowAuthMenu(false)}
                   >
-                    <Link to="/login" className="btn btn-sm btn-light d-block text-start" style={{ textDecoration: 'none', color: '#212529', marginBottom: 6 }} onClick={() => setShowAuthMenu(false)}>Login</Link>
-                    <Link to="/signup" className="btn btn-sm btn-light d-block text-start" style={{ textDecoration: 'none', color: '#212529' }} onClick={() => setShowAuthMenu(false)}>Signup</Link>
-                  </div>
-                )}
-              </li>
-              </ul>
-          </form>
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="btn btn-sm btn-light d-block text-start"
+                    style={{ textDecoration: 'none', color: '#212529' }}
+                    onClick={() => setShowAuthMenu(false)}
+                  >
+                    Signup
+                  </Link>
+                </div>
+              )}
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
